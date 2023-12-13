@@ -13,9 +13,8 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint", "react-hooks"],
+  plugins: ["react", "@typescript-eslint", "i18next", "react-hooks"],
   rules: {
-    indent: "off",
     "import/no-unresolved": "off",
     "import/prefer-default-export": "off",
     "no-unused-vars": "warn",
@@ -27,17 +26,19 @@ module.exports = {
     "import/extensions": "off",
     "import/no-extraneous-dependencies": "off",
     "no-underscore-dangle": "off",
+    "max-len": ["error", { ignoreComments: true, code: 100 }],
     "jsx-a11y/no-static-element-interactions": "off",
     "jsx-a11y/click-events-have-key-events": "off",
     "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
-    "react-hooks/exhaustive-deps": "error", // Checks effect dependencies
+    "react-hooks/exhaustive-deps": "error", // Checks effect dependencies,
+    "no-param-reassign": "off",
   },
   globals: {
     __IS_DEV__: true,
   },
   overrides: [
     {
-      files: ["**/src/**/*.test.{ts,tsx}"],
+      files: ["**/src/**/*.{test,stories}.{ts,tsx}"],
     },
   ],
 };
